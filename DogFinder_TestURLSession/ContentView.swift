@@ -8,12 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = ContentViewModel()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+           
+            AsyncImage(url: URL(string: "\(viewModel.dogImage.message)")) { theDogImage in
+                theDogImage
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 250, height: 250)
+                    .clipped()
+        
+            } placeholder: {
+                Rectangle()
+                    .foregroundColor(.black)
+            }
+            .frame(width: 250, height: 250)
+            .padding(.bottom, 50)
+            
+            
+            
+            Button {
+                Task {
+                    await viewModel.getDogImage()
+                }
+                
+            } label: {
+                Text("Get Dog Image")
+            }
+            .buttonStyle(BorderedProminentButtonStyle())
+
         }
         .padding()
     }
