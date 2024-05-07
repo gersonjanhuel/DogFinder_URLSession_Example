@@ -31,9 +31,10 @@ class DataManager {
     }
     
     
+    // This is for demoi: JSON encoder & decoder
     func processExampleData() {
         // ENCODE
-        let person = Person(name: "Budi", gender: "Male", link: "http://testlink.com")
+        let person = Person(name: "Budi", gender: "Male", website: "http://testlink.com")
         
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
@@ -55,14 +56,15 @@ class DataManager {
     }
 }
 
+// This struct is only for extra example for function processExampleData()
 struct Person: Codable {
     enum CodingKeys: String, CodingKey {
         case name, gender
-        case link = "url"
+        case website = "url"
     }
     
     var name: String
     var gender: String
-    var link: String
+    var website: String
 }
 

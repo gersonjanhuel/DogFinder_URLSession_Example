@@ -17,9 +17,6 @@ class ContentViewModel: ObservableObject {
         } catch {
             print("Oopsss! Error fetching dog image. \(error.localizedDescription)")
         }
-        
-        
-        
     }
 }
 
