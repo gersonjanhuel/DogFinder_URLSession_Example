@@ -8,7 +8,11 @@
 import Foundation
 
 struct DogImage: Codable {
-    var message: String
+    enum CodingKeys: String, CodingKey {
+        case imageURL = "message"
+    }
+    
+    var imageURL: String
 }
 
 

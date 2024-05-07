@@ -8,7 +8,7 @@
 import Foundation
 
 class ContentViewModel: ObservableObject {
-    @Published var dogImage: DogImage = DogImage(message: "")
+    @Published var dogImage: DogImage = DogImage(imageURL: "")
     
     @MainActor
     func getDogImage() async {

@@ -11,9 +11,10 @@ struct ContentView: View {
     @StateObject var viewModel = ContentViewModel()
     
     var body: some View {
+        
         VStack {
            
-            AsyncImage(url: URL(string: "\(viewModel.dogImage.message)")) { theDogImage in
+            AsyncImage(url: URL(string: "\(viewModel.dogImage.imageURL)")) { theDogImage in
                 theDogImage
                     .resizable()
                     .scaledToFill()
@@ -24,6 +25,7 @@ struct ContentView: View {
                 Rectangle()
                     .foregroundColor(.black)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .frame(width: 250, height: 250)
             .padding(.bottom, 50)
             
